@@ -27,4 +27,34 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Set the user's name.
+     *
+     * @param  string  $value
+     * @return void
+     */
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name'] = ucwords(
+            strtolower($value)
+        );
+    }
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'is_admin' => 'boolean',
+    ];
+
+    /**
+     * Get the roles of the user.
+     */
+    public function roles()
+    {
+        return $this->belongsToMany('App\Role', 'user_roles');
+    }
 }
