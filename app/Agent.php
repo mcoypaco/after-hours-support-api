@@ -30,4 +30,12 @@ class Agent extends Model
             strtolower($value)
         );
     }
+
+    /**
+     * Get the evaluations of the agent.
+     */
+    public function evaluations()
+    {
+        return $this->hasMany('App\Report');
+    }
 }

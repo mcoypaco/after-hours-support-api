@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Report;
+use App\Evaluation;
 use Illuminate\Http\Request;
 
-class ReportController extends Controller
+class EvaluationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class ReportController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Report  $report
+     * @param  \App\Evaluation  $evaluation
      * @return \Illuminate\Http\Response
      */
-    public function show(Report $report)
+    public function show(Evaluation $evaluation)
     {
         //
     }
@@ -52,10 +52,10 @@ class ReportController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Report  $report
+     * @param  \App\Evaluation  $evaluation
      * @return \Illuminate\Http\Response
      */
-    public function edit(Report $report)
+    public function edit(Evaluation $evaluation)
     {
         //
     }
@@ -64,10 +64,10 @@ class ReportController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Report  $report
+     * @param  \App\Evaluation  $evaluation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Report $report)
+    public function update(Request $request, Evaluation $evaluation)
     {
         //
     }
@@ -75,10 +75,10 @@ class ReportController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Report  $report
+     * @param  \App\Evaluation  $evaluation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Report $report)
+    public function destroy(Evaluation $evaluation)
     {
         //
     }

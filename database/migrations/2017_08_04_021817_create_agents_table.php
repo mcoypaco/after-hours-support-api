@@ -15,6 +15,7 @@ class CreateAgentsTable extends Migration
     {
         Schema::create('agents', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('employee_number');
             $table->string('name');
             $table->timestamps();
             $table->softDeletes();
