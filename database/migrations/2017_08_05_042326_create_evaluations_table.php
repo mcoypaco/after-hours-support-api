@@ -18,9 +18,9 @@ class CreateEvaluationsTable extends Migration
             $table->integer('agent_id')->unsigned();
             $table->integer('team_id')->unsigned();
             $table->integer('campaign_id')->unsigned();
-            $table->date('call_date');
-            $table->date('evaluation_date');
-            $table->text('details')->nullable();
+            $table->integer('worker_queue_id')->unsigned();
+            $table->dateTime('call_history');
+            $table->text('call_details')->nullable();
             $table->text('content');
             $table->float('score');
             $table->timestamps();

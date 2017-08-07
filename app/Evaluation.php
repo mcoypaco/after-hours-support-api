@@ -41,4 +41,12 @@ class Evaluation extends Model
     {
         return $this->belongsTo('App\Team');
     }
+    
+    /**
+     * Get the work queue of the evaluation.
+     */
+    public function work_queue()
+    {
+        return $this->belongsTo('App\WorkQueue');
+    }
 }
