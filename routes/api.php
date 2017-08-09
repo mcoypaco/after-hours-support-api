@@ -16,3 +16,10 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user()->load('roles');
 });
+
+Route::resource('agent', 'AgentController');
+Route::resource('campaign', 'CampaignController');
+Route::resource('evaluation', 'EvaluationController');
+Route::resource('questionnaire', 'QuestionnaireController');
+Route::resource('team', 'TeamController');
+Route::resource('work-queue', 'WorkQueueController');
