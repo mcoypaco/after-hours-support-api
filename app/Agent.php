@@ -16,7 +16,7 @@ class Agent extends Model
      *
      * @var array
      */
-    protected $fillable = ['name'];
+    protected $fillable = ['employee_number', 'name'];
 
     /**
      * Set the user's name.
