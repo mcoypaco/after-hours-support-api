@@ -3,10 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Agent;
+use App\Http\Requests\{ StoreAgent };
 use Illuminate\Http\Request;
 
 class AgentController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth:api');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +19,7 @@ class AgentController extends Controller
      */
     public function index()
     {
-        //
+        return Agent::paginate(10);
     }
 
     /**
@@ -33,7 +38,7 @@ class AgentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreAgent $request)
     {
         //
     }

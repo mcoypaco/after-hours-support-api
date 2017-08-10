@@ -57,4 +57,19 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Role', 'user_roles');
     }
+
+    /**
+     * Checks the role of a user.
+     *
+     * @param string
+     * @return boolean
+     */
+    public function hasRole($role)
+    {
+        $this->load(['roles' => function($query) use($role) {
+            $query->where('name', $role);
+        }]);
+
+        return count($this->roles);
+    }
 }
