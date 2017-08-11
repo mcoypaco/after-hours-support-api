@@ -4,18 +4,19 @@ namespace App\Policies;
 
 use App\User;
 use App\Agent;
+use App\Role;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class AgentPolicy
 {
     use HandlesAuthorization;
 
-    // public function before($user, $ability)
-    // {
-    //     if ($user->is_admin) {
-    //         return true;
-    //     }
-    // }
+    public function before($user, $ability)
+    {
+        if ($user->is_admin) {
+            return true;
+        }
+    }
 
     /**
      * Determine whether the user can view the Agent.
@@ -37,7 +38,9 @@ class AgentPolicy
      */
     public function create(User $user)
     {
-        return $user->hasRole('manage-settings');
+        return $user->hasRole(
+            Role::where('name', 'manage-settings')->first()
+        );
     }
 
     /**

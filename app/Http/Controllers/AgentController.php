@@ -19,7 +19,7 @@ class AgentController extends Controller
      */
     public function index()
     {
-        return Agent::paginate(10);
+        return Agent::orderBy('name')->paginate(Agent::maxNumberPerRequest());
     }
 
     /**
@@ -40,7 +40,13 @@ class AgentController extends Controller
      */
     public function store(StoreAgent $request)
     {
-        //
+        // Check if request has duplicate data already. Throw an error if truthy.
+        Agent::checkDuplicate();
+
+        Agent::create([
+            'employee_number' => $request->employee_number,
+            'name' => $request->name,
+        ]);
     }
 
     /**
@@ -51,7 +57,17 @@ class AgentController extends Controller
      */
     public function show(Agent $agent)
     {
-        //
+        return $agent;
+    }
+
+    /**
+     * Search the specified resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function search()
+    {
+        return Agent::search();
     }
 
     /**

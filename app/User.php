@@ -64,10 +64,10 @@ class User extends Authenticatable
      * @param string
      * @return boolean
      */
-    public function hasRole($role)
+    public function hasRole(Role $role)
     {
         $this->load(['roles' => function($query) use($role) {
-            $query->where('name', $role);
+            $query->where('name', $role->name);
         }]);
 
         return count($this->roles);

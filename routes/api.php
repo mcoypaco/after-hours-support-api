@@ -23,3 +23,7 @@ Route::resource('evaluation', 'EvaluationController');
 Route::resource('questionnaire', 'QuestionnaireController');
 Route::resource('team', 'TeamController');
 Route::resource('work-queue', 'WorkQueueController');
+
+Route::group(['prefix' => 'agent'], function () {
+    Route::post('search', 'AgentController@search');
+});
